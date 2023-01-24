@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Task;
@@ -35,8 +34,8 @@ public class TaskController {
             statement.setBoolean(4, task.getIsCompleted());
             statement.setString(5, task.getNotes());
             statement.setDate(6, new Date(task.getDeadLine().getTime()));
-            statement.setDate(7, new Date(task.getCreatecAt().getTime()));
-            statement.setDate(8, new Date(task.getUpdateAT().getTime()));
+            statement.setDate(7, new Date(task.getCreatedAt().getTime()));
+            statement.setDate(8, new Date(task.getUpdatedAT().getTime()));
             statement.execute();
         } catch (Exception e) {
             throw new RuntimeException("Erro ao inserir registro no banco de dados!" + e.getMessage(), e);
@@ -68,8 +67,8 @@ public class TaskController {
             statement.setBoolean(4, task.getIsCompleted());
             statement.setString(5, task.getNotes());
             statement.setDate(6, new Date(task.getDeadLine().getTime()));
-            statement.setDate(7, new Date(task.getCreatecAt().getTime()));
-            statement.setDate(8, new Date(task.getUpdateAT().getTime())); 
+            statement.setDate(7, new Date(task.getCreatedAt().getTime()));
+            statement.setDate(8, new Date(task.getUpdatedAT().getTime())); 
             statement.setInt(9,task.getId());
             statement.execute();
         } catch (Exception e) {
@@ -79,7 +78,7 @@ public class TaskController {
         }
     }
     
-    public void removeById(int taskId) throws SQLException{
+    public void removeById(int taskId){
         String sql = "DELETE FROM tasks WHERE id = ?";
         
         Connection connection = null;
@@ -122,8 +121,8 @@ public class TaskController {
                 task.setIsCompleted(resultSet.getBoolean("completed"));
                 task.setNotes(resultSet.getString("notes"));
                 task.setDeadLine(resultSet.getDate("deadLine"));
-                task.setCreatecAt(resultSet.getDate("createdAt"));
-                task.setUpdateAT(resultSet.getDate("updateAt"));                
+                task.setCreatedAt(resultSet.getDate("createdAt"));
+                task.setUpdatedAT(resultSet.getDate("updatedAt"));                
                 tasks.add(task);
             }
         } catch (Exception e) {

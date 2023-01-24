@@ -25,7 +25,7 @@ public class ConnectionFactory {
     public static void closeConnection(Connection connection){
         try {
             if (connection != null){
-                closeConnection(connection);
+                connection.close();
             }
         } catch (Exception e) {
             throw new RuntimeException("Erro ao fechar a conexão com o banco de dados", e);

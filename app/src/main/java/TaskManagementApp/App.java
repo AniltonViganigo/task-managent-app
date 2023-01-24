@@ -3,12 +3,28 @@
  */
 package TaskManagementApp;
 
+import controller.ProjectController;
+import java.time.Instant;
+import java.util.Date;
+import model.Project;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        
+        ProjectController projectController = new ProjectController();
+        
+        
+        Project project = new Project();
+        
+        project.setName("Atualização do Projeto");
+//        
+//        project.setName("Estudos Java Spring Boot");
+//        project.setDescription("Estudos focado no Framework Spring Boot");
+//        project.setUpdatedAT(new Date());
+//        projectController.save(project);            
     }
 }

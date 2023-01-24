@@ -8,16 +8,19 @@ public class Project {
     private String name;
     private String description;
     private Date createdAT;
-    private Date updateAT;
+    private Date updatedAT;
 
-    public Project(int ID, String name, String description, Date createdAT, Date updateAT) {
+    public Project(int ID, String name, String description, Date createdAT, Date updatedAT) {
         this.ID = ID;
         this.name = name;
         this.description = description;
         this.createdAT = createdAT;
-        this.updateAT = updateAT;
+        this.updatedAT = updatedAT;
     }
 
+    public Project(){
+        this.createdAT = new Date();
+    }
     public int getID() {
         return ID;
     }
@@ -50,16 +53,20 @@ public class Project {
         this.createdAT = createdAT;
     }
 
-    public Date getUpdateAT() {
-        return updateAT;
+    public Date getUpdatedAT() {
+        return updatedAT;
     }
 
-    public void setUpdateAT(Date updateAT) {
-        this.updateAT = updateAT;
+    public void setUpdatedAT(Date updatedAT) {
+        this.updatedAT = updatedAT;
     }      
 
     @Override
     public String toString() {
-        return "Project{" + "ID=" + ID + ", name=" + name + ", description=" + description + ", createdAT=" + createdAT + ", updateAT=" + updateAT + '}';
+        return "Project{" + "ID=" + ID + ", name=" + name + ", description=" + description + ", createdAT=" + createdAT + ", updatedAT=" + updatedAT + '}';
     }   
+
+    public Object getCreatecAt() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
