@@ -20,6 +20,7 @@ public class Project {
 
     public Project(){
         this.createdAT = new Date();
+        this.updatedAT = new Date();
     }
     public int getID() {
         return ID;
